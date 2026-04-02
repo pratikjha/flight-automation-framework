@@ -67,4 +67,13 @@ public class FlightStepDefs {
         Assert.assertEquals(uiFlights, dbFlights);
         Assert.assertEquals(uiFlights, apiFlights);
     }
+
+    @Then("validate flight data with api only")
+    public void validateAPIOnly() {
+
+        APIUtils api = new APIUtils();
+        List<String> apiFlights = api.getFlightsFromAPI();
+
+        Assert.assertTrue(apiFlights.size() > 0);
+    }
 }
